@@ -15,25 +15,21 @@ export const useMovies = () => {
   }, []);
 
   const initialLoad = async () => {
-    try {
-      const [nowPlayingMovies, upcomingMovies, topRatedMovies, popularMovies] =
-        await Promise.all([
-          UseCases.moviesNowPlaingUseCase(movieDBFetcher),
-          UseCases.moviesUpcomingUseCase(movieDBFetcher),
-          UseCases.moviesTopRatedUseCase(movieDBFetcher),
-          UseCases.moviesPopularUseCase(movieDBFetcher),
-        ]);
+    const [nowPlayingMovies, upcomingMovies, topRatedMovies, popularMovies] =
+      await Promise.all([
+        UseCases.moviesNowPlaingUseCase(movieDBFetcher),
+        UseCases.moviesUpcomingUseCase(movieDBFetcher),
+        UseCases.moviesTopRatedUseCase(movieDBFetcher),
+        UseCases.moviesPopularUseCase(movieDBFetcher),
+      ]);
 
-      setIsLoading(false);
-      setNowPlayin(nowPlayingMovies);
-      setUpcoming(upcomingMovies);
-      setPopular(popularMovies);
-      setTopRated(topRatedMovies);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(false);
+    setNowPlayin(nowPlayingMovies);
+    setUpcoming(upcomingMovies);
+    setPopular(popularMovies);
+    setTopRated(topRatedMovies);
+
+    setIsLoading(false);
   };
   return {
     isLoading,
