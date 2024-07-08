@@ -17,7 +17,11 @@ export const HomeScreen = () => {
     <ScrollView>
       <View style={{marginTop: top + 30, paddingBottom: 30}}>
         <PosterCarousel movies={nowPlaying} />
-        <HorizontalCarousel movies={popular} title="populares" />
+        <HorizontalCarousel
+          movies={popular}
+          title="populares"
+          loadNextPage={() => console.log('fin alcanzado')}
+        />
         <HorizontalCarousel movies={topRated} title="Mejor calificadas" />
         <HorizontalCarousel movies={upcoming} title="Proximamente" />
       </View>
