@@ -15,7 +15,7 @@ export const MoviePoster = ({movie, width = 270, height = 420}: Props) => {
     <Pressable
       onPress={() => navigation.navigate('Details', {movieId: movie.id})}
       style={({pressed}) => ({width, height, opacity: pressed ? 0.9 : 1})}>
-      <View style={{...styles.imageContainer, width: 250, height: 400}}>
+      <View style={styles.imageContainer}>
         <Image style={styles.image} source={{uri: movie.poster}} />
       </View>
     </Pressable>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    marginHorizontal: 10,
+    marginHorizontal: 7,
     borderRadius: 18,
     shadowColor: '#000',
     shadowOffset: {
