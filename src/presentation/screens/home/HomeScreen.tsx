@@ -16,7 +16,7 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView>
-      <View style={{marginTop: top + 30, paddingBottom: 30}}>
+      <View style={{marginTop: top, paddingBottom: 30}}>
         <PosterCarousel movies={nowPlaying} />
         <HorizontalCarousel
           movies={popular}
