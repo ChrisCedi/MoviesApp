@@ -12,8 +12,11 @@ export const useMovie = (movieId: number) => {
   }, [movieId]);
 
   const loadMovie = async () => {
+    setIsLoading(true);
     const response = await UseCases.getByIdUseCase(movieDBFetcher, movieId);
     setMovie(response);
+
+    setIsLoading(false);
   };
   return {isLoading, movie};
 };
