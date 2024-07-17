@@ -27,7 +27,7 @@ export const MovieDetails = ({movie, cast}: Props) => {
           Presupuesto
         </Text>
         <Text style={{fontSize: 16}}>{currencyFormatter(movie.budget)}</Text>
-        <View style={{marginTop: 20, marginBottom: 100}}>
+        <View style={{marginTop: 20, marginBottom: 30}}>
           <Text
             style={{
               fontSize: 23,
