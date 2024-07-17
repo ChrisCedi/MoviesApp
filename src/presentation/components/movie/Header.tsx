@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  useWindowDimensions,
-  Image,
-  Pressable,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {View, Text, StyleSheet, useWindowDimensions, Image} from 'react-native';
 
 interface Props {
   poster: string;
@@ -18,7 +10,6 @@ interface Props {
 export const Header = ({title, originalTitle, poster}: Props) => {
   const {height: screenHeight} = useWindowDimensions();
 
-  const navigation = useNavigation();
   return (
     <>
       <View style={{...styles.imageContainer, height: screenHeight * 0.7}}>
@@ -29,12 +20,6 @@ export const Header = ({title, originalTitle, poster}: Props) => {
       <View style={styles.marginContainer}>
         <Text style={styles.subTitle}>{originalTitle}</Text>
         <Text style={styles.title}>{title}</Text>
-
-        <View style={styles.backButton}>
-          <Pressable onPress={() => navigation.goBack()}>
-            <Text style={styles.backButtonText}>Regresar</Text>
-          </Pressable>
-        </View>
       </View>
     </>
   );
