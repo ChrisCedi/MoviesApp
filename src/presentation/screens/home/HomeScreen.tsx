@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {useMovies} from '../../hooks/useMovies';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {PosterCarousel} from '../../components/movies/PosterCarousel';
 import {HorizontalCarousel} from '../../components/movies/HorizontalCarousel';
+import {FullScreenView} from '../../components/loaders/FullScreenView';
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
@@ -11,12 +12,12 @@ export const HomeScreen = () => {
     useMovies();
 
   if (isLoading) {
-    return <Text>Cargando...</Text>;
+    return <FullScreenView />;
   }
 
   return (
     <ScrollView>
-      <View style={{marginTop: top + 30, paddingBottom: 30}}>
+      <View style={{marginTop: top, paddingBottom: 30}}>
         <PosterCarousel movies={nowPlaying} />
         <HorizontalCarousel
           movies={popular}
